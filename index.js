@@ -174,6 +174,8 @@ app.use(function(req, res) {
     res.redirect("https://ceopiecemaker.github.io/");
 });
 
+console.log(process.env);
+
 app.listen(app.get('port'), function() {
   console.log(`Yo yo yo wazzup iz ya boi ${app.get("port")} which is pretty dank!`);
 });
