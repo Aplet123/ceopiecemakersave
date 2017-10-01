@@ -9,7 +9,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"hi\"",
-    "start": "node index.js"
+    "start": "node ."
   },
   "repository": {
     "type": "git",
