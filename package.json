@@ -1,0 +1,31 @@
+{
+  "name": "ceopiecemakersave",
+  "version": "0.0.1",
+  "description": "A saving feature for ceopiecemaker.github.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"hi\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aplet123/ceopiecemakersave.git"
+  },
+  "keywords": [
+    "chess",
+    "evolved",
+    "online",
+    "piece",
+    "maker",
+    "piecemaker",
+    "chess",
+    "evolved",
+    "online",
+    "ceo"
+  ],
+  "author": "Aplet123",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Aplet123/ceopiecemakersave/issues"
+  },
+  "homepage": "https://github.com/Aplet123/ceopiecemakersave#readme"
+}
