@@ -2,6 +2,10 @@
   "name": "ceopiecemakersave",
   "version": "0.0.1",
   "description": "A saving feature for ceopiecemaker.github.io",
+  "engines": {
+  	"node": "8.4.0",
+  	"npm": "5.4.2"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"hi\""
