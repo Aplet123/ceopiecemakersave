@@ -11,6 +11,7 @@ var s3 = new AWS.S3();
 
 var auth = {};
 var saves = {};
+var rateLimits = {};
 
 s3.getObject({
     Bucket: "tranquilitytestbucket",
@@ -52,6 +53,12 @@ app.use(function (err, req, res, next) {
 
 app.use(function(req, res, next) {
 	if (req.method == "POST") {
+		for (let i in req.body) {
+			if (req.body[i].length > 3000) {
+				res.sendStatus(400);
+				return;
+			}
+		}
 		if (req.path.startsWith(process.env.ADMIN)) {
 			if (! (req.body.method || req.body.param1 || req.body.param2 || req.body.param3)) {
 				res.sendStatus(400);
@@ -111,6 +118,11 @@ app.use(function(req, res, next) {
 			if (! (req.body.username || req.body.auth || req.body.data || req.body.name)) {
 				res.sendStatus(400);
 			} else {
+				if (rateLimits[req.body.username] && Date.now() - rateLimits[req.body.username] <= 30000) {
+					res.sendStatus(429);
+					return;
+				}
+				rateLimits[req.body.username] = Date.now();
 				if (! /^(?:[^,]*,){3}[^,]*\n(?:(?:\w*#\w*)|(?:[0-9a-fN]*),)*(?:(?:\w*#\w*)|(?:[0-9a-fN]*))?\n(?:\d*,[^,]*,(?:\w+:[0-9a-f]*,)*(?:\w+:[0-9a-f]*)?\n){4}(?:c\d+,[^,]+,[^,]*,[^,]*,(?:\d*,){12}(?:(?:true)|(?:false))\n)*$/.test(req.body.data)) {
 					res.sendStatus(400);
 				} else if (auth[req.body.username.toLowerCase()] === req.body.auth) {
