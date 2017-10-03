@@ -143,7 +143,7 @@ app.use(function(req, res, next) {
 						user: req.body.username,
 						name: req.body.name
 					});
-					res.end(process.env.DEPLOYED + "?" + params.toString());
+					res.end(process.env.DEPLOYED + "/save?" + params.toString());
 				} else {
 					res.sendStatus(401);
 				}
