@@ -68,6 +68,8 @@ app.use(function(req, res, next) {
 				s3.upload({
 					Bucket: "tranquilitytestbucket",
 					Key: "ceopiecemakersaves/saves.json",
+					ContentType: "application/json",
+					ACL: "public-read",
 					Body: JSON.stringify(saves)
 				}, function (err, data) {
 					if (err) {
@@ -92,6 +94,7 @@ app.use(function(req, res, next) {
 				s3.upload({
 					Bucket: "tranquilitytestbucket",
 					Key: "ceopiecemakersaves/auth.json",
+					ContentType: "application/json",
 					Body: JSON.stringify(auth)
 				}, function (err, data) {
 					if (err) {
@@ -104,6 +107,8 @@ app.use(function(req, res, next) {
 				s3.upload({
 					Bucket: "tranquilitytestbucket",
 					Key: "ceopiecemakersaves/saves.json",
+					ContentType: "application/json",
+					ACL: "public-read",
 					Body: JSON.stringify(saves)
 				}, function (err, data) {
 					if (err) {
@@ -133,6 +138,8 @@ app.use(function(req, res, next) {
 					s3.upload({
 						Bucket: "tranquilitytestbucket",
 						Key: "ceopiecemakersaves/saves.json",
+						ContentType: "application/json",
+						ACL: "public-read",
 						Body: JSON.stringify(saves)
 					}, function (err, data) {
 						if (err) {
